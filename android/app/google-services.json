@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "281453295083",
+    "project_id": "pata-gig",
+    "storage_bucket": "pata-gig.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281453295083:android:8b3a9cadc49d37c57415ae",
+        "android_client_info": {
+          "package_name": "com.example.patagig"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCExOqDGWvliSrYAk98bSnNyztTcgoiCXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

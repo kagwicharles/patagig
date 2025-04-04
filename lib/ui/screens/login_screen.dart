@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:patagig/util/auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -12,6 +13,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final authService = AuthService();
+
   bool _obscurePassword = true;
   bool _rememberMe = false;
 
@@ -215,15 +218,30 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       // Login button
                       ElevatedButton(
-                        onPressed: () {
-                          // TODO: Implement login logic
-                          // For now, we'll just show a success message
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Login successful!'),
-                              backgroundColor: Colors.green,
-                            ),
-                          );
+                        onPressed: () async {
+                          try {
+                            final user = await authService.signIn(
+                              _emailController.text.trim(),
+                              _passwordController.text.trim(),
+                            );
+
+                            if (user != null) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Login successful!'),
+                                  backgroundColor: Colors.green,
+                                ),
+                              );
+                              // Navigate to Home or Dashboard
+                            }
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Login failed: $e'),
+                                backgroundColor: Colors.red,
+                              ),
+                            );
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: theme.primaryColor,
