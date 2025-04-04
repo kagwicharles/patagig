@@ -43,7 +43,7 @@ class FeaturedGig extends StatelessWidget {
         children: [
           // Image container with fixed dimensions
           Container(
-            height: 120,
+            height: 99,
             width: double.infinity,
             color: Colors.blue.withOpacity(0.1),
             child: Center(

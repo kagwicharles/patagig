@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:patagig/ui/screens/home_screen.dart';
+import 'package:patagig/ui/screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       themeMode: ThemeMode.system,
-      home: const GigHomeScreen(),
+      home: const LoginScreen(),
     );
   }
 }
