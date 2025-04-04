@@ -1,4 +1,4 @@
-package com.example.patagig
+package com.sapplink.patagig
 
 import io.flutter.embedding.android.FlutterActivity
 

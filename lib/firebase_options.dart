@@ -63,6 +63,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '281453295083',
     projectId: 'pata-gig',
     storageBucket: 'pata-gig.firebasestorage.app',
-    iosBundleId: 'com.example.patagig',
+    iosBundleId: 'com.sapplink.patagig',
   );
 }
