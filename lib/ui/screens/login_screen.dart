@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:patagig/ui/screens/signup_screen.dart';
 import 'package:patagig/util/auth_service.dart';
 import 'package:patagig/util/navigation_extension.dart';
-import 'package:vibration/vibration.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -271,7 +269,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        // context.push(SignUpScreen());
+                        context.push(SignupScreen());
                       },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
@@ -281,7 +279,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         'Sign Up',
                         style: TextStyle(
-                          color: theme.primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -321,8 +318,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         );
       }
-    } else {
-      Vibration.vibrate();
     }
   }
 }
