@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:patagig/ui/screens/signup_screen.dart';
 import 'package:patagig/util/auth_service.dart';
+import 'package:patagig/util/navigation_extension.dart';
 import 'package:vibration/vibration.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -269,7 +271,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        // TODO: Navigate to sign up screen
+                        // context.push(SignUpScreen());
                       },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
