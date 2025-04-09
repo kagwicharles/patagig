@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:patagig/ui/screens/login_screen.dart';
+import 'package:patagig/util/auth_service.dart';
 import 'package:patagig/util/navigation_extension.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -20,6 +22,9 @@ class _SignupScreenState extends State<SignupScreen> {
   bool _obscureConfirmPassword = true;
   bool _isLoading = false;
   bool _agreedToTerms = false;
+
+  // Initialize auth service
+  final AuthService _authService = AuthService();
 
   @override
   void dispose() {
@@ -48,21 +53,34 @@ class _SignupScreenState extends State<SignupScreen> {
     setState(() => _isLoading = true);
 
     try {
-      // Simulate network delay
-      await Future.delayed(const Duration(seconds: 1));
+      // Create user account with email and password
+      final user = await _authService.signUp(
+        _emailController.text.trim(),
+        _passwordController.text.trim(),
+      );
 
-      // TODO: Implement actual Firebase signup
+      if (user != null) {
+        // Update user profile with name
+        await user.updateDisplayName(_nameController.text.trim());
 
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Account created successfully!'),
-            backgroundColor: Colors.green,
-          ),
-        );
+        // Store additional user information in Firestore
+        await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+          'name': _nameController.text.trim(),
+          'email': _emailController.text.trim(),
+          'createdAt': FieldValue.serverTimestamp(),
+        });
 
-        // Navigate to login or home screen
-        context.push(LoginScreen());
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Account created successfully!'),
+              backgroundColor: Colors.green,
+            ),
+          );
+
+          // Navigate to login screen
+          context.push(LoginScreen());
+        }
       }
     } catch (e) {
       if (mounted) {

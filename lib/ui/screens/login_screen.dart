@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:patagig/ui/screens/home_screen.dart';
 import 'package:patagig/ui/screens/signup_screen.dart';
 import 'package:patagig/util/auth_service.dart';
 import 'package:patagig/util/navigation_extension.dart';
@@ -302,13 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
         );
 
         if (user != null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Login successful!'),
-              backgroundColor: Colors.green,
-            ),
-          );
-          // Navigate to Home or Dashboard
+          context.push(GigHomeScreen());
         }
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
