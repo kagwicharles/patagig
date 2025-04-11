@@ -135,6 +135,7 @@ class _GigHomeScreenState extends State<GigHomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(
           'Gigs for You',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
