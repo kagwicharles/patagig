@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
@@ -39,7 +40,8 @@ class FeaturedGig extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min, // Limit size to contents
+        mainAxisSize: MainAxisSize.min,
+        // Limit size to contents
         children: [
           // Image container with fixed dimensions
           Container(
@@ -47,10 +49,18 @@ class FeaturedGig extends StatelessWidget {
             width: double.infinity,
             color: Colors.blue.withOpacity(0.1),
             child: Center(
-              child: Icon(
-                LucideIcons.image,
-                size: 40,
-                color: Colors.blue.withOpacity(0.3),
+              child: CachedNetworkImage(
+                imageUrl: imagePath,
+                placeholder: (c, s) => Icon(
+                  LucideIcons.image,
+                  size: 40,
+                  color: Colors.blue.withOpacity(0.3),
+                ),
+                errorWidget: (c, t, y) => Icon(
+                  LucideIcons.image,
+                  size: 40,
+                  color: Colors.blue.withOpacity(0.3),
+                ),
               ),
             ),
           ),
