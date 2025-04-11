@@ -11,6 +11,8 @@ import 'package:patagig/models/gig_model.dart';
 import 'package:patagig/models/category_model.dart';
 import 'package:patagig/services/gig_service.dart';
 import 'package:patagig/services/user_service.dart';
+import 'package:patagig/ui/screens/add_gig_screen.dart';
+import 'package:patagig/util/navigation_extension.dart';
 
 class GigHomeScreen extends StatefulWidget {
   const GigHomeScreen({Key? key}) : super(key: key);
@@ -379,8 +381,7 @@ class _GigHomeScreenState extends State<GigHomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Navigate to create gig page
-          Navigator.pushNamed(context, '/create-gig');
+          context.push(AddGigScreen());
         },
         child: const Icon(LucideIcons.plus),
       ),

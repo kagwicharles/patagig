@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 24),
                 const Text(
                   'GigFinder',
                   textAlign: TextAlign.center,
@@ -184,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 : Colors.grey.shade50,
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 24),
 
                         // Remember me and Forgot password
                         Row(

@@ -115,7 +115,7 @@ class _SignupScreenState extends State<SignupScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const _AppLogo(),
-                const SizedBox(height: 16),
+                const SizedBox(height: 24),
                 const _Header(),
                 const SizedBox(height: 40),
                 Form(
@@ -137,7 +137,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     isDark: isDark,
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 24),
                 _TermsAgreement(
                   value: _agreedToTerms,
                   onChanged: (value) {
@@ -546,7 +546,7 @@ class _SocialSignupOptions extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 24),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
